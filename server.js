@@ -3,17 +3,17 @@ const app = express();
 const PORT = 8000;
 
 const rapper = {
-  '21Savage': {
+  '21 savage': {
     'age': 29,
     'birthName': 'Shéyaa Bin Abraham-Joseph',
     'birthLocation': 'London, UK'
   },
-  'Chance The Rapper': {
+  'chance the rapper': {
     'age': 29,
     'birthName': 'Chancelor Bennett',
     'birthLocation': 'Chicago, IL'
   },
-  'Dylan': {
+  'dylan': {
     'age': 29,
     'birthName': 'Dylan',
     'birthLocation': 'Dylan'
@@ -32,7 +32,7 @@ app.get('/api/:rapperName', (req, res) => {
   if(rapper[rapperName]) {
     res.json(rapper[rapperName]);
   } else {
-    res.json(rapper['Dylan']);
+    res.json(rapper['dylan']);
   }
 })
 
