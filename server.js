@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const PORT = 8000;
+const host = '0.0.0.0';
+const port = process.env.PORT || 3000;
 
 const rapper = {
   '21 savage': {
@@ -36,6 +37,6 @@ app.get('/api/:rapperName', (req, res) => {
   }
 })
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(port,host, () => {
+  console.log(`Server is running on port ${port}`);
 })
