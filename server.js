@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
-const host = '0.0.0.0';
+const cors = require('cors');
 const port = process.env.PORT || 3000;
+
+app.use(cors());
 
 const rapper = {
   '21 savage': {
@@ -26,6 +28,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 })
 
+app.get('/js/main.js', (req, res) => {
+  res.sendFile(__dirname + '/js/main.js');
+})
+
 // /api/:rapperName - express functionality as a query parameter
 app.get('/api/:rapperName', (req, res) => {
   const rapperName = req.params.rapperName.toLowerCase();
@@ -37,6 +43,6 @@ app.get('/api/:rapperName', (req, res) => {
   }
 })
 
-app.listen(port,host, () => {
+app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 })
